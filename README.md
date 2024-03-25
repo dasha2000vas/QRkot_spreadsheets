@@ -10,8 +10,8 @@
 1. **Клонировать репозиторий и перейти в папку с ним:**
 
 ```bash
-git clone git@github.com:dasha2000vas/cat_charity_fund.git
-cd cat_charity_fund
+git clone git@github.com:dasha2000vas/QRkot_spreadsheets.git
+cd QRkot_spreadsheets
 ```
 
 2. **Создать и заполнить файл .env:**
