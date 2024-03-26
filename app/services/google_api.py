@@ -4,7 +4,10 @@ from aiogoogle import Aiogoogle
 
 from app.core.config import settings
 
-FORMAT = "%Y/%m/%d %H:%M:%S"
+FORMAT = '%Y/%m/%d %H:%M:%S'
+SHEET_ID = 0
+ROW_COUNT = 100
+COLUMN_COUNT = 11
 
 
 async def spreadsheets_create(wrapper_services: Aiogoogle) -> str:
@@ -14,10 +17,10 @@ async def spreadsheets_create(wrapper_services: Aiogoogle) -> str:
         'properties': {'title': f'Отчёт на {now}',
                        'locale': 'ru_RU'},
         'sheets': [{'properties': {'sheetType': 'GRID',
-                                   'sheetId': 0,
+                                   'sheetId': SHEET_ID,
                                    'title': 'Лист1',
-                                   'gridProperties': {'rowCount': 100,
-                                                      'columnCount': 11}}}]
+                                   'gridProperties': {'rowCount': ROW_COUNT,
+                                                      'columnCount': COLUMN_COUNT}}}]
     }
     responce = await wrapper_services.as_service_account(
         service.spreadsheets.create(json=spreadsheet_body)
@@ -39,7 +42,7 @@ async def set_user_permissions(
         service.permissions.create(
             fileId=spreadsheetid,
             json=permissions_body,
-            fields="id"
+            fields='id'
         ))
 
 
